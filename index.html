@@ -7,8 +7,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="cityName"></h1>
-    <h2 id="cityTemp"></h2>
+    <div class="header"></div>
+    <div class="todayWeather">
+        <h1 id="cityName"></h1>
+        <h2 id="weatherCondition"></h2>
+        <h2 id="cityTemp"></h2>
+        <img id="todayImg">
+    </div>
+
+    <div class="forecastOne forecast">
+        <h1 id="forecastOneDate"></h1>
+        <h2 id="forecastOneMin"></h2>
+        <h2 id="forecastOneMax"></h2>
+        <img id="imgOne">
+    </div>
+
+    <div class="forecastTwo forecast">
+        <h1 id="forecastTwoDate"></h1>
+        <h2 id="forecastTwoMin"></h2>
+        <h2 id="forecastTwoMax"></h2>
+        <img id="imgTwo">
+    </div>
+
+    <div class="forecastThree forecast">
+        <h1 id="forecastThreeDate"></h1>
+        <h2 id="forecastThreeMin"></h2>
+        <h2 id="forecastThreeMax"></h2>
+        <img id="imgThree">
+    </div>
+
+    <input placeholder="Location">
+    <input type="button" value="Change Units">
 </body>
 <script src="script.js"></script>
 </html>
