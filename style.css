@@ -3,21 +3,45 @@
     src: url("fonts/Ubuntu-Bold.ttf");
 }
 
+.header{
+}
+
 body{
     background-image:url(images/adrian-infernus-GLf7bAwCdYg-unsplash.jpg); 
     color:white;  
     font-family: "Ubuntu"; 
+    width: 100%;
 }
 
 .todayWeather, .forecast{
     display:flex;
-    gap:20px;
-    margin:100px;
+    padding:50px;
     width:fit-content;
     flex-direction: column;
 }
 
+.todayWeather{
+}
+
+
 .weatherInfo{
     display:flex;
+    flex-wrap:wrap;
+    width:100%;
+}
+.forecasts{
+    display: flex;
+}
 
+
+.forecastHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forecastInfo{
+    display: flex;
+    flex-direction: column;
+    margin-left:auto;
 }

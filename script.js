@@ -78,7 +78,6 @@ changeUnits.addEventListener("click", function(){
 })
 function changeUnit(){
     if(betterUnits===true){
-      console.log("sdlkghs");
       fetch(`http://api.weatherapi.com/v1/forecast.json?key=68c77b33187c450e90e174348231609&q=${locationInfo}&days=3&aqi=no&alerts=no`)
       .then(function(response) {
         return response.json();
