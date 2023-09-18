@@ -38,7 +38,7 @@ locationForm.addEventListener("submit",function(){
 })
 
 function printF(){
-  fetch(`http://api.weatherapi.com/v1/forecast.json?key=68c77b33187c450e90e174348231609&q=${locationInfo}&days=3&aqi=no&alerts=no`)
+  fetch(`https://api.weatherapi.com/v1/forecast.json?key=68c77b33187c450e90e174348231609&q=${locationInfo}&days=3&aqi=no&alerts=no`)
   .then(function(response) {
     return response.json();
 
@@ -78,7 +78,7 @@ changeUnits.addEventListener("click", function(){
 })
 function changeUnit(){
     if(betterUnits===true){
-      fetch(`http://api.weatherapi.com/v1/forecast.json?key=68c77b33187c450e90e174348231609&q=${locationInfo}&days=3&aqi=no&alerts=no`)
+      fetch(`https://api.weatherapi.com/v1/forecast.json?key=68c77b33187c450e90e174348231609&q=${locationInfo}&days=3&aqi=no&alerts=no`)
       .then(function(response) {
         return response.json();
 
