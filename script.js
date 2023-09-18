@@ -29,7 +29,41 @@ function getDayOfWeek(epochTime) {
   return daysOfWeek[date.getUTCDay()];
 }
 
+function printF(){
+  fetch('http://api.weatherapi.com/v1/forecast.json?key=68c77b33187c450e90e174348231609&q=47150&days=3&aqi=no&alerts=no')
+  .then(function(response) {
+    return response.json();
 
+  })
+  .then(function(response){
+    cityTemp.innerHTML=response.current.temp_f;
+    cityName.innerHTML=response.location.name;
+    weatherCondition.innerHTML=response.current.condition.text;
+    todayImg.src="https:"+`${response.current.condition.icon}`;
+
+
+    forecastOneDate.innerHTML=getDayOfWeek(response.forecast.forecastday[0].date_epoch);
+    forecastOneMin.innerHTML=response.forecast.forecastday[0].day.maxtemp_f;
+    forecastOneMax.innerHTML=response.forecast.forecastday[0].day.mintemp_f;
+    imgOne.src="https:"+`${response.forecast.forecastday[0].day.condition.icon}`;
+
+    forecastTwoDate.innerHTML=getDayOfWeek(response.forecast.forecastday[1].date_epoch);
+    forecastTwoMin.innerHTML=response.forecast.forecastday[1].day.maxtemp_f;
+    forecastTwoMax.innerHTML=response.forecast.forecastday[1].day.mintemp_f;
+    imgTwo.src="https:"+`${response.forecast.forecastday[1].day.condition.icon}`;
+
+    forecastThreeDate.innerHTML=getDayOfWeek(response.forecast.forecastday[2].date_epoch);
+    forecastThreeMin.innerHTML=response.forecast.forecastday[2].day.maxtemp_f;
+    forecastThreeMax.innerHTML=response.forecast.forecastday[2].day.mintemp_f;
+    imgThree.src="https:"+`${response.forecast.forecastday[2].day.condition.icon}`;
+
+  })
+  .catch(function(err) {
+    console.log(":(");
+  });
+  betterUnits=true;
+
+}
 
 changeUnits.addEventListener("click", function(){
     if(betterUnits===true){
@@ -68,39 +102,8 @@ changeUnits.addEventListener("click", function(){
     });
   }
   else{
-  fetch('http://api.weatherapi.com/v1/forecast.json?key=68c77b33187c450e90e174348231609&q=47150&days=3&aqi=no&alerts=no')
-  .then(function(response) {
-    return response.json();
-
-  })
-  .then(function(response){
-    cityTemp.innerHTML=response.current.temp_f;
-    cityName.innerHTML=response.location.name;
-    weatherCondition.innerHTML=response.current.condition.text;
-    todayImg.src="https:"+`${response.current.condition.icon}`;
-
-
-    forecastOneDate.innerHTML=getDayOfWeek(response.forecast.forecastday[0].date_epoch);
-    forecastOneMin.innerHTML=response.forecast.forecastday[0].day.maxtemp_f;
-    forecastOneMax.innerHTML=response.forecast.forecastday[0].day.mintemp_f;
-    imgOne.src="https:"+`${response.forecast.forecastday[0].day.condition.icon}`;
-
-    forecastTwoDate.innerHTML=getDayOfWeek(response.forecast.forecastday[1].date_epoch);
-    forecastTwoMin.innerHTML=response.forecast.forecastday[1].day.maxtemp_f;
-    forecastTwoMax.innerHTML=response.forecast.forecastday[1].day.mintemp_f;
-    imgTwo.src="https:"+`${response.forecast.forecastday[1].day.condition.icon}`;
-
-    forecastThreeDate.innerHTML=getDayOfWeek(response.forecast.forecastday[2].date_epoch);
-    forecastThreeMin.innerHTML=response.forecast.forecastday[2].day.maxtemp_f;
-    forecastThreeMax.innerHTML=response.forecast.forecastday[2].day.mintemp_f;
-    imgThree.src="https:"+`${response.forecast.forecastday[2].day.condition.icon}`;
-
-  })
-  .catch(function(err) {
-    console.log(":(");
-  });
-  betterUnits=true;
+    printF();
+  
 }
-
-
 })
+printF();
